@@ -48,6 +48,7 @@ public class ProjectService {
          */
     
         ResponseEntity response = client.get().uri("https://econommiza-api.herokuapp.com/econommiza-app/usuarios/2").retrieve().onStatus(status -> status.value() == 401,clienteResponse -> Mono.empty()).toEntity(UserDto.class).block();
+         System.out.println(response.getBody().getEmail());        
 
         
         /*Segunda forma usando RestTampblet (Será depreciado em breve, foi substituido pelo WebClient da mesma api)*/
